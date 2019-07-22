@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends My_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -23,8 +23,6 @@ class Welcome extends CI_Controller {
 		$this->load->model("prueba_model");
 		
 		$z = $this->prueba_model->get();
-		header('Content-Type: application/json');
-			header("Access-Control-Allow-Origin: *");
-		echo json_encode($z, JSON_PRETTY_PRINT);
+		$this->toJson($z);
 	}
 }
